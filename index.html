@@ -7,3 +7,28 @@
 <script src="./src/00-objectball.js"></script>
 <script src="./src/01-simple-debug.js"></script>
 <!-- <script src="./src/02-advanced-debug.js"></script> -->
+
+const players = [
+    { name: "Player One", points: 20, team: "Team A" },
+    { name: "Player Two", points: 30, team: "Team B" },
+    { name: "Player Three", points: 25, team: "Team A" },
+    { name: "Alexander the Great", points: 35, team: "Team C" }
+];
+
+const teams = {
+    "Team A": 45,
+    "Team B": 30,
+    "Team C": 35
+};
+
+function mostPointsScored(players) {
+    return players.reduce((max, player) => player.points > max.points ? player : max, players[0]);
+}
+
+function winningTeam(teams) {
+    return Object.keys(teams).reduce((maxTeam, team) => teams[team] > teams[maxTeam] ? team : maxTeam);
+}
+
+function playerWithLongestName(players) {
+    return players.reduce((longest, player) => player.name.length > longest.name.length ? player : longest, players[0]);
+}
